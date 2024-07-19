@@ -24,12 +24,33 @@ var animation = lottie.loadAnimation({
 
 document.getElementById('register-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const gender = document.getElementById('gender').value;
+
+    if (!validateEmail(email)) {
+        showToast('Invalid email format.', 3000, 'error-toast');
+        return;
+    }
+
+    if (!validatePassword(password)) {
+        showToast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number.', 3000, 'error-toast');
+        return;
+    }
+
+    if (!validateName(name)) {
+        showToast('Name must contain only letters.', 3000, 'error-toast');
+        return;
+    }
+
+    if (!validatePhone(phone)) {
+        showToast('Phone number must be exactly 10 digits.', 3000, 'error-toast');
+        return;
+    }
+
 
     const data = {
         email: email,
@@ -50,9 +71,9 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     .then(data => {
         if (data.statusCode === 200) {
             showToast('Registration successful!', 3000, 'success-toast');
-            // setTimeout(function() {
-            //     window.location.href = '/index.html'; 
-            // }, 3000);
+            setTimeout(function() {
+                window.location.href = '/index.html'; 
+            }, 3000);
         } else {
             showToast('Registration failed: ' + data.message, 3000, 'error-toast');
         }
@@ -62,6 +83,27 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         showToast('An error occurred. Please try again later.', 3000, 'error-toast');
     });
 });
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function validatePassword(password) {
+    const re = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$/;
+    return re.test(password);
+}
+
+function validateName(name) {
+    const re = /^[a-zA-Z\s]+$/;
+    return re.test(name);
+}
+
+function validatePhone(phone) {
+    const re = /^\d{10}$/;
+    return re.test(phone);
+}
+
 
 function showToast(text, duration, className) {
     Toastify({

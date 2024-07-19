@@ -35,13 +35,13 @@
     background: linear-gradient(to right, $gradient-colors);
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: bold;
-    font-size: 50px;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
     background-size: 500% auto;
     animation: textShine 5s ease-in-out infinite alternate;
+    
   }
   
   @keyframes textShine {
