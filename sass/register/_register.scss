@@ -31,7 +31,7 @@
 
   $gradient-colors: (#b4da0e 20%, #00affa 30%, #0190cd 70%, #764ada 80%);
 
-  h2 {
+  .text-customh2 {
     background: linear-gradient(to right, $gradient-colors);
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: bold;
