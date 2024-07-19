@@ -51,6 +51,11 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         return;
     }
 
+    if (!validateGender(gender)) {
+        showToast('Please select a valid gender.', 3000, 'error-toast');
+        return;
+    }
+
 
     const data = {
         email: email,
@@ -102,6 +107,10 @@ function validateName(name) {
 function validatePhone(phone) {
     const re = /^\d{10}$/;
     return re.test(phone);
+}
+
+function validateGender(gender) {
+    return gender === 'true' || gender === 'false';
 }
 
 
