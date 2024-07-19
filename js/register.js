@@ -1,3 +1,19 @@
+(function () {
+    'use strict';
+    window.addEventListener('load', function () {
+        var forms = document.getElementsByClassName('needs-validation');
+        Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
 var animation = lottie.loadAnimation({
     container: document.getElementById('lottie-animation'),
     renderer: 'svg',
@@ -34,9 +50,9 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     .then(data => {
         if (data.statusCode === 200) {
             showToast('Registration successful!', 3000, 'success-toast');
-            setTimeout(function() {
-                window.location.href = '/index.html'; 
-            }, 3000);
+            // setTimeout(function() {
+            //     window.location.href = '/index.html'; 
+            // }, 3000);
         } else {
             showToast('Registration failed: ' + data.message, 3000, 'error-toast');
         }
