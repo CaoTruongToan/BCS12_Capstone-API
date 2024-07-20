@@ -11,30 +11,43 @@ function goHome() {
 // Lấy danh sách sản phẩm từ API và hiển thị trên trang chủ
 function getShoeList() {
   axios
-      .get("https://shop.cyberlearn.vn/api/Product")
-      .then((response) => {
-          const shoes = response.data.content;
-          let shoeList = "";
-          shoes.forEach((shoe) => {
-              shoeList += `
-                <div class="shoe-item col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
-                  <div class="card">
-                    <img src="${shoe.image}" class="card-img-top" alt="${shoe.name}">
-                    <div class="card-body">
-                      <h5 class="card-title">${shoe.name}</h5>
-                      <p class="card-text">${shoe.shortDescription}</p>
-                      <p class="card-text">$${shoe.price}</p>
-                      <button onclick="goToDetail(${shoe.id})" class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                  </div>
+    .get("https://shop.cyberlearn.vn/api/Product")
+    .then((response) => {
+      const shoes = response.data.content;
+      let shoeList = "";
+      shoes.forEach((shoe) => {
+        shoeList += `
+          <div class="shoe-item col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card">
+              <button onclick="goToDetail(${shoe.id})" class="btn">
+                <img
+                  src="${shoe.image}"
+                  class="card-img-top"
+                  alt="${shoe.name}"
+                />
+              </button>
+              <div class="card-body">
+                <!-- name -->
+                <div class="card-title">
+                  <h5>${shoe.name}</h5>
+                  <i class="fa fa-shopping-cart"></i>
                 </div>
+                <!-- detail -->
+                <p class="card-text">
+                  ${shoe.shortDescription}
+                </p>
+                <!-- price -->
+                <p class="card-price">$${shoe.price}</p>
+              </div>
+            </div>
+          </div>
               `;
-          });
-          document.getElementById("shoeList").innerHTML = shoeList;
-      })
-      .catch((error) => {
-          console.error("There was an error fetching the shoes!", error);
       });
+      document.getElementById("shoeList").innerHTML = shoeList;
+    })
+    .catch((error) => {
+      console.error("There was an error fetching the shoes!", error);
+    });
 }
 
 // Lấy chi tiết sản phẩm từ API và hiển thị trên trang chi tiết sản phẩm
@@ -43,10 +56,10 @@ function getShoeDetail() {
   const shoeId = urlParams.get("id");
 
   axios
-      .get(`https://shop.cyberlearn.vn/api/Product/getbyid?id=${shoeId}`)
-      .then((response) => {
-          const shoe = response.data.content;
-          const shoeDetail = `
+    .get(`https://shop.cyberlearn.vn/api/Product/getbyid?id=${shoeId}`)
+    .then((response) => {
+      const shoe = response.data.content;
+      const shoeDetail = `
             <div class="row">
               <div class="col-12 col-md-6 mb-3">
                 <img src="${shoe.image}" class="img-fluid" alt="${shoe.name}">
@@ -72,14 +85,14 @@ function getShoeDetail() {
             </div>
           `;
 
-          document.getElementById("shoeDetail").innerHTML = shoeDetail;
+      document.getElementById("shoeDetail").innerHTML = shoeDetail;
 
-          // Gọi hàm để lấy các sản phẩm tương tự
-          getSimilarShoes(shoeId);
-      })
-      .catch((error) => {
-          console.error("There was an error fetching the shoe details!", error);
-      });
+      // Gọi hàm để lấy các sản phẩm tương tự
+      getSimilarShoes(shoeId);
+    })
+    .catch((error) => {
+      console.error("There was an error fetching the shoe details!", error);
+    });
 }
 
 //Hàm show thông tin bạn đã chọn size
@@ -93,14 +106,14 @@ function selectSize(size) {
 // Lấy danh sách giày tương tự
 function getSimilarShoes(shoeId) {
   axios
-      .get("https://shop.cyberlearn.vn/api/Product")
-      .then((response) => {
-          const shoes = response.data.content.filter(
-              (shoe) => shoe.id !== shoeId
-          );
-          let similarShoeList = "";
-          for (let i = 0; i < 12 && i < shoes.length; i++) {
-              similarShoeList += `
+    .get("https://shop.cyberlearn.vn/api/Product")
+    .then((response) => {
+      const shoes = response.data.content.filter(
+        (shoe) => shoe.id !== shoeId
+      );
+      let similarShoeList = "";
+      for (let i = 0; i < 12 && i < shoes.length; i++) {
+        similarShoeList += `
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
           <div class="card">
             <img src="${shoes[i].image}" class="card-img-top" alt="${shoes[i].name}">
@@ -112,27 +125,27 @@ function getSimilarShoes(shoeId) {
           </div>
         </div>
       `;
-          }
-          document.getElementById("similarShoes").innerHTML = similarShoeList;
-      })
-      .catch((error) => {
-          console.error("There was an error fetching similar shoes!", error);
-      });
+      }
+      document.getElementById("similarShoes").innerHTML = similarShoeList;
+    })
+    .catch((error) => {
+      console.error("There was an error fetching similar shoes!", error);
+    });
 }
 
 // Lấy đánh giá sản phẩm
 function getReviews() {
   const reviews = [
-      { name: "Nguyễn Văn A", rating: 5, comment: "Sản phẩm rất tốt!" },
-      { name: "Trần Thị B", rating: 4, comment: "Giày rất đẹp nhưng hơi chật." },
-      { name: "Lê Văn C", rating: 3, comment: "Chất lượng trung bình." },
-      { name: "Phạm Thị D", rating: 5, comment: "Tuyệt vời, rất hài lòng!" },
-      { name: "Đỗ Văn E", rating: 4, comment: "Rất đẹp, sẽ mua thêm." },
+    { name: "Nguyễn Văn A", rating: 5, comment: "Sản phẩm rất tốt!" },
+    { name: "Trần Thị B", rating: 4, comment: "Giày rất đẹp nhưng hơi chật." },
+    { name: "Lê Văn C", rating: 3, comment: "Chất lượng trung bình." },
+    { name: "Phạm Thị D", rating: 5, comment: "Tuyệt vời, rất hài lòng!" },
+    { name: "Đỗ Văn E", rating: 4, comment: "Rất đẹp, sẽ mua thêm." },
   ];
 
   let reviewList = "";
   reviews.forEach((review) => {
-      reviewList += `
+    reviewList += `
     <div class="card mb-2">
       <div class="card-body">
         <h5 class="card-title">${review.name}</h5>

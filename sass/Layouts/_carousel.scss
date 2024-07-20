@@ -12,16 +12,16 @@
                     span{
                         font-family: "Audiowide", sans-serif;
                         text-transform: uppercase;
-                        color: $color-background;
+                        color: $color-home-btn-background;
                     }
                 }
                 p{
                     text-transform: capitalize;
                     &:nth-child(1){
-                        font-size:$font-size-medium ;
+                        font-size:$font-size-home-medium ;
                     }
                     &:nth-child(3){
-                        font-size: $font-size-sub;
+                        font-size: $font-size-home-sub;
                         font-weight: 600;
                     }
                 }

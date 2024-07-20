@@ -161,73 +161,78 @@ button.active {
 header {
   background: #000;
 }
-header .header_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-}
-header .header_content .logoBrand a {
+header nav .logo-brand a {
   font-size: 32px;
   color: #fff;
 }
-header .header_content nav ul {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
-header .header_content nav ul li a {
-  color: #fff;
-}
-header .header_content .header_right {
+header nav .collapse ul {
   display: flex;
   gap: 20px;
-}
-header .header_content .header_right .inputSearch {
-  display: flex;
   align-items: center;
-  position: relative;
+  margin-right: 20px;
 }
-header .header_content .header_right .inputSearch input {
-  width: 250px;
-  height: 40px;
-  border-radius: 30px;
-  background: #ccc;
-  padding: 0 20px;
-  outline: none;
-}
-header .header_content .header_right .inputSearch i {
+header nav .collapse ul li a {
   color: #fff;
+  transition: all 0.3s;
+}
+header nav .collapse ul li a:hover {
+  color: #FBBF18;
+}
+header nav .collapse ul li .active {
+  color: #FBBF18;
+}
+header nav .headerRight {
+  height: 100%;
+}
+header nav .headerRight .inputSearch input {
+  width: 300px;
   height: 40px;
-  width: 60px;
-  background: #DD620A;
+  background: #e2e2e2;
+  font-size: 14px;
+  font-weight: 500;
   border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s;
-  position: absolute;
+}
+header nav .headerRight .inputSearch .icon-search {
   top: 0;
   right: 0;
+  height: 100%;
+  display: block;
 }
-header .header_content .header_right .inputSearch i:hover {
+header nav .headerRight .inputSearch .icon-search .btnSearch {
+  background: #DD620A;
+  color: #fff;
+  font-size: 14px;
+  height: 100%;
+  width: 50px;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+header nav .headerRight .inputSearch .icon-search .btnSearch:hover {
   background: #FBBF18;
   color: #000;
 }
-header .header_content .header_right .cart {
-  color: #fff;
-  height: 40px;
-  width: 60px;
+header nav .headerRight .cart {
+  margin-left: 20px;
+}
+header nav .headerRight .cart i {
   background: #DD620A;
+  color: #fff;
+  font-size: 14px;
+  height: 100%;
+  width: 60px;
   border-radius: 30px;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s;
 }
-header .header_content .header_right .cart:hover {
+header nav .headerRight .cart i:hover {
   background: #FBBF18;
   color: #000;
+}
+header nav .navbar-toggler-icon {
+  background-color: #DD620A;
+  border-radius: 6px;
 }
 
 .carousel .carousel-inner .carousel-item {
@@ -256,7 +261,7 @@ header .header_content .header_right .cart:hover {
   font-size: 24px;
 }
 .carousel .carousel-inner .carousel-item .carousel-content p:nth-child(3) {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 }
 .carousel .carousel-inner .carousel-item .carousel-content button {
@@ -264,7 +269,7 @@ header .header_content .header_right .cart:hover {
   height: 40px;
   border-radius: 30px;
   padding: 25px 30px;
-  font-size: 18px;
+  font-size: 16px;
   background: #DD620A;
   display: flex;
   align-items: center;
@@ -280,29 +285,45 @@ header .header_content .header_right .cart:hover {
   color: #000;
 }
 
-.footer .service {
+.footer .container-fluid {
+  padding: 0 !important;
+}
+.footer .service .about-service {
   background: #DD620A;
 }
-.footer .service ul {
+.footer .service .about-service .row {
+  margin-bottom: 0 !important;
+}
+.footer .service .about-service ul {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
-.footer .service ul li {
+.footer .service .about-service ul li {
   display: flex;
-  gap: 20px;
   align-items: center;
   padding: 25px 0;
   font-size: 20px;
   color: #fff;
   text-transform: capitalize;
 }
-.footer .service ul li i {
-  font-size: 50px;
+.footer .service .about-service ul li i {
+  font-size: 32px;
+  margin-right: 20px;
 }
-.footer .service img {
+.footer .service .photo-sample {
+  width: 100%;
+}
+.footer .service .photo-sample .row {
+  width: 100%;
+}
+.footer .service .photo-sample .photo-sample_item {
+  padding: 0 !important;
+}
+.footer .service .photo-sample .photo-sample_item img {
   display: block;
-  width: 16.6666%;
-  padding: 0;
+  width: 100%;
+  background-size: contain;
 }
 .footer .footer-content {
   display: flex;
@@ -324,14 +345,14 @@ header .header_content .header_right .cart:hover {
 }
 .footer .footer-content ul li a {
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   transition: all 0.5s;
 }
 .footer .footer-content ul li:hover a {
   color: #FBBF18;
 }
 .footer .footer-content .location p {
-  font-size: 15px;
+  font-size: 14px;
 }
 .footer .footer-content .email h3 {
   color: #DD620A;
@@ -368,6 +389,14 @@ header .header_content .header_right .cart:hover {
   margin-top: 20px;
 }
 
+@media (max-width: 600px) {
+  .photo-sample {
+    display: none;
+  }
+}
+.showShoesList {
+  margin-bottom: 100px;
+}
 .showShoesList .content {
   text-align: center;
   margin-top: 100px;
@@ -382,8 +411,53 @@ header .header_content .header_right .cart:hover {
   max-width: 40%;
   margin: 20px auto 30px;
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+}
+.showShoesList .card-body {
+  background: #e2e2e2;
+  height: 240px;
+}
+.showShoesList .card-body .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.showShoesList .card-body .card-title h5 {
+  text-transform: capitalize;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+}
+.showShoesList .card-body .card-title i {
+  color: white;
+  color: #fff;
+  height: 40px;
+  border-radius: 30px;
+  padding: 25px 30px;
+  font-size: 16px;
+  background: #DD620A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  transition: all 0.5s;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 40px;
+}
+.showShoesList .card-body .card-title i:hover {
+  background: #FBBF18;
+  color: #000;
+}
+.showShoesList .card-body .card-text {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.showShoesList .card-body .card-price {
+  font-family: "Audiowide", sans-serif;
 }
 
 a {
