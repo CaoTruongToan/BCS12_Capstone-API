@@ -1,0 +1,22 @@
+.showShoesList{
+    .content{
+        text-align: center;
+        margin-top: 100px;
+        h2{
+            text-transform: uppercase;
+            font-family: "Audiowide", sans-serif;
+            color: $color-background;
+            
+        }
+        p{
+            width: 100%;
+            max-width: 40%;
+            margin: 20px auto 30px;
+            text-transform: capitalize;
+            font-size: $font-size-sub;
+            font-weight: 500;
+        
+        }
+    }
+
+}

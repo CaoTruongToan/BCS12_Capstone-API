@@ -1,0 +1,39 @@
+$font-family: 'Poppins', sans-serif;
+$color-primary: #fff;
+$color-secondary: #000;
+$color-background: #DD620A;
+$color-hover-primary: #FBBF18;
+
+$font-size-title: 48px;
+$font-size-large: 32px;
+$font-size-medium: 24px;
+$font-size-xsmall: 18px;
+$font-size-small: 16px;
+$font-size-sub: 15px;
+
+$border-radius: 6px;
+
+@mixin title(){
+    font-size: $font-size-title;
+    font-family: "Audiowide", sans-serif;
+    text-transform: uppercase;
+}
+
+@mixin btn(){
+    color: $color-primary;
+    height: 40px;
+    border-radius: 30px;
+    padding:25px 30px;
+    font-size: $font-size-xsmall;
+    background: $color-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    transition: all 0.5s;
+    &:hover{
+        background: $color-hover-primary;
+        color: $color-secondary;
+      }
+}
