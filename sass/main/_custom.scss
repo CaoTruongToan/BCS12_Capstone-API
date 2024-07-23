@@ -13,3 +13,9 @@ ul{
         list-style: none;
     }
 }
+
+.btn{
+    &:focus{
+        outline: none;
+    }
+}

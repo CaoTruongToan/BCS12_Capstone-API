@@ -23,12 +23,77 @@
 
         .card-body{
             background: #e2e2e2;
-            height: 240px;
             .card-title{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
+                height: 80px;
+                h5{
+                    text-transform: capitalize;
+                    font-family: "Audiowide", sans-serif;
+                    color: $color-home-btn-background;
+                }
+                .btn{
+                        &:focus{
+                            outline: none;
+                        }
+                        i{
+                            color: white;
+                            @include btn();
+                            padding: 10px 20px;
+                            font-size: $font-size-home-sub;
+                            border-radius: 40px;
+                        }
+                }
+
+                 
+            }
+            .card-text{
+                font-size: $font-size-home-sub;
+                font-weight: 500;
+                text-transform: capitalize;
+                height: 100px;
+            }
+            .card-price{
+                font-family: "Audiowide", sans-serif;
+
+            }
+        }
+
+}
+
+.similarShoes{
+    margin-bottom: 100px;
+    .content{
+        text-align: center;
+        margin-top: 100px;
+        h2{
+            text-transform: uppercase;
+            font-family: "Audiowide", sans-serif;
+            color: $color-home-btn-background;
+            
+        }
+        p{
+            width: 100%;
+            max-width: 40%;
+            margin: 20px auto 30px;
+            text-transform: capitalize;
+            font-size: $font-size-home-sub;
+            font-weight: 500;
+        
+        }
+    }
+
+
+        .card-body{
+            background: #e2e2e2;
+            .card-title{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                height: 100px;
                 h5{
                     text-transform: capitalize;
                     font-family: "Audiowide", sans-serif;
@@ -53,5 +118,42 @@
 
             }
         }
-
 }
+
+.showDetailShoe{
+    .detail-shoe{
+        h3{
+            text-transform: uppercase;
+            font-family: "Audiowide", sans-serif;
+            color: $color-home-btn-background;
+        }
+        p{
+            &:nth-child(2){
+                font-size: $font-size-home-sub;
+                font-weight: 500;
+            }
+            &:nth-child(3) {
+                font-size: $font-size-home-medium;
+                font-weight: 600;
+                font-family: "Audiowide", sans-serif;
+                color: $color-home-btn-background;
+                span{
+                font-family: "Audiowide", sans-serif;
+                color: $color-home-secondary;
+
+                }
+
+
+            }
+        }
+    }
+}
+
+.h2-title {
+    text-transform: uppercase;
+    font-family: "Audiowide", sans-serif;
+    color: $color-home-btn-background;
+    text-align: center;
+    margin: 30px 0;
+}
+

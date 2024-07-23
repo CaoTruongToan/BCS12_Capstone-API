@@ -24,6 +24,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="css/animate.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -74,7 +79,6 @@
                 <li class="nav-item">
                   <a href="./register.html">Account</a>
                 </li>
-
               </ul>
               <form class="headerRight d-flex" role="search">
                 <div class="inputSearch position-relative">
@@ -116,15 +120,17 @@
                 alt="banner1"
               />
               <div class="carousel-content">
-                <p>Sneakers 2024 limited Edition</p>
-                <h2>for <span>journery</span> with your happy feet</h2>
-                <p>
+                <p class=" animate__animated animate__fadeInLeft">Sneakers 2024 limited Edition</p>
+                <h2 class=" wow animate__animated animate__fadeInLeft"
+                 data-wow-delay="1s"
+                 >for <span>journery</span> with your happy feet</h2>
+                <p class=" wow animate__animated animate__fadeInLeft" data-wow-delay="2s">
                   Quis varius quam quisque id diam. Tellus mauris a diam
                   maecenas sed enim ut sem viverra.Massa enim nec dui nunc
                   mattis.
                 </p>
 
-                <button>Shop Special Edition</button>
+                <button class=" wow animate__animated animate__fadeInLeft" data-wow-delay="3s">Shop Special Edition</button>
               </div>
             </div>
 
@@ -135,15 +141,17 @@
                 alt="banner2"
               />
               <div class="carousel-content">
-                <p>Sneakers 2024 limited Edition</p>
-                <h2>for <span>journery</span> with your happy feet</h2>
-                <p>
+                <p class=" animate__animated animate__fadeInLeft">Sneakers 2024 limited Edition</p>
+                <h2 class=" wow animate__animated animate__fadeInLeft"
+                 data-wow-delay="1s"
+                 >for <span>journery</span> with your happy feet</h2>
+                <p class=" wow animate__animated animate__fadeInLeft" data-wow-delay="2s">
                   Quis varius quam quisque id diam. Tellus mauris a diam
                   maecenas sed enim ut sem viverra.Massa enim nec dui nunc
                   mattis.
                 </p>
 
-                <button>Shop Special Edition</button>
+                <button class=" wow animate__animated animate__fadeInLeft" data-wow-delay="3s">Shop Special Edition</button>
               </div>
             </div>
 
@@ -154,15 +162,17 @@
                 alt="banner3"
               />
               <div class="carousel-content">
-                <p>Sneakers 2024 limited Edition</p>
-                <h2>for <span>journery</span> with your happy feet</h2>
-                <p>
+                <p class=" animate__animated animate__fadeInLeft">Sneakers 2024 limited Edition</p>
+                <h2 class=" wow animate__animated animate__fadeInLeft"
+                 data-wow-delay="1s"
+                 >for <span>journery</span> with your happy feet</h2>
+                <p class=" wow animate__animated animate__fadeInLeft" data-wow-delay="2s">
                   Quis varius quam quisque id diam. Tellus mauris a diam
                   maecenas sed enim ut sem viverra.Massa enim nec dui nunc
                   mattis.
                 </p>
 
-                <button>Shop Special Edition</button>
+                <button class=" wow animate__animated animate__fadeInLeft" data-wow-delay="3s">Shop Special Edition</button>
               </div>
             </div>
           </div>
@@ -171,7 +181,7 @@
     </section>
 
     <!-- List Shoes -->
-    <section class="showShoesList">
+    <section class="showShoesList container">
       <div class="mt-4">
         <div class="content">
           <h2>fresh picks for you</h2>
@@ -321,5 +331,9 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="js/get_product.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+      </script>
   </body>
 </html>

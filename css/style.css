@@ -419,20 +419,23 @@ header nav .navbar-toggler-icon {
 }
 .showShoesList .card-body {
   background: #e2e2e2;
-  height: 240px;
 }
 .showShoesList .card-body .card-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  height: 80px;
 }
 .showShoesList .card-body .card-title h5 {
   text-transform: capitalize;
   font-family: "Audiowide", sans-serif;
   color: #DD620A;
 }
-.showShoesList .card-body .card-title i {
+.showShoesList .card-body .card-title .btn:focus {
+  outline: none;
+}
+.showShoesList .card-body .card-title .btn i {
   color: white;
   color: #fff;
   height: 40px;
@@ -450,7 +453,7 @@ header nav .navbar-toggler-icon {
   font-size: 14px;
   border-radius: 40px;
 }
-.showShoesList .card-body .card-title i:hover {
+.showShoesList .card-body .card-title .btn i:hover {
   background: #FBBF18;
   color: #000;
 }
@@ -458,9 +461,104 @@ header nav .navbar-toggler-icon {
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
+  height: 100px;
 }
 .showShoesList .card-body .card-price {
   font-family: "Audiowide", sans-serif;
+}
+
+.similarShoes {
+  margin-bottom: 100px;
+}
+.similarShoes .content {
+  text-align: center;
+  margin-top: 100px;
+}
+.similarShoes .content h2 {
+  text-transform: uppercase;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+}
+.similarShoes .content p {
+  width: 100%;
+  max-width: 40%;
+  margin: 20px auto 30px;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 500;
+}
+.similarShoes .card-body {
+  background: #e2e2e2;
+}
+.similarShoes .card-body .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100px;
+}
+.similarShoes .card-body .card-title h5 {
+  text-transform: capitalize;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+}
+.similarShoes .card-body .card-title i {
+  color: white;
+  color: #fff;
+  height: 40px;
+  border-radius: 30px;
+  padding: 25px 30px;
+  font-size: 16px;
+  background: #DD620A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  transition: all 0.5s;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 40px;
+}
+.similarShoes .card-body .card-title i:hover {
+  background: #FBBF18;
+  color: #000;
+}
+.similarShoes .card-body .card-text {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.similarShoes .card-body .card-price {
+  font-family: "Audiowide", sans-serif;
+}
+
+.showDetailShoe .detail-shoe h3 {
+  text-transform: uppercase;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+}
+.showDetailShoe .detail-shoe p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 500;
+}
+.showDetailShoe .detail-shoe p:nth-child(3) {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+}
+.showDetailShoe .detail-shoe p:nth-child(3) span {
+  font-family: "Audiowide", sans-serif;
+  color: #000;
+}
+
+.h2-title {
+  text-transform: uppercase;
+  font-family: "Audiowide", sans-serif;
+  color: #DD620A;
+  text-align: center;
+  margin: 30px 0;
 }
 
 a {
@@ -475,6 +573,10 @@ a {
 
 ul li {
   list-style: none;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .button-32 {
@@ -525,4 +627,15 @@ ul li {
   100% {
     background-position: 100% 50%;
   }
+}
+.register .register-left .card-body {
+  position: relative;
+}
+.register .register-left .card-body .icon-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.register .register-left .card-body .icon-close a {
+  color: #000;
 }/*# sourceMappingURL=style.css.map */

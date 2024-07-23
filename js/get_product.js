@@ -30,7 +30,9 @@ function getShoeList() {
                 <!-- name -->
                 <div class="card-title">
                   <h5>${shoe.name}</h5>
-                  <i class="fa fa-shopping-cart"></i>
+                   <button onclick="goToDetail(${shoe.id})" class="btn">
+                    <i class="fa fa-shopping-cart" ) ></i>
+                  </button>
                 </div>
                 <!-- detail -->
                 <p class="card-text">
@@ -60,26 +62,30 @@ function getShoeDetail() {
     .then((response) => {
       const shoe = response.data.content;
       const shoeDetail = `
-            <div class="row">
+            <div class="row showDetailShoe">
               <div class="col-12 col-md-6 mb-3">
                 <img src="${shoe.image}" class="img-fluid" alt="${shoe.name}">
               </div>
-              <div class="col-12 col-md-6 mb-3">
+              <div class="col-12 col-md-6 mb-3 detail-shoe">
                 <h3>${shoe.name}</h3>
                 <p>${shoe.description}</p>
-                <p>Price: $${shoe.price}</p>
+                <p>Price: <span>$ ${shoe.price} </span></p>
                 <div class="d-flex align-items-center">
                   <p class="mb-0 me-2">Sizes:</p>
                   <div id="sizeOptions" class="d-flex flex-wrap">
-                    ${shoe.size.map(size => `
+                    ${shoe.size
+          .map(
+            (size) => `
                       <div class="form-check m-1">
                         <input class="form-check-input" type="radio" name="shoeSize" value="${size}" id="size${size}" onchange="selectSize('${size}')">
                         <label class="form-check-label" for="size${size}">${size}</label>
                       </div>
-                    `).join('')}
+                    `
+          )
+          .join("")}
                   </div>
                 </div>
-                <button class="btn btn-success mt-3">Mua ngay</button>
+                <button class="btn btn-success mt-3 me-3">Mua ngay</button>
                 <button class="btn btn-primary mt-3" onclick="goHome()">Back to Home</button>
               </div>
             </div>
@@ -108,22 +114,32 @@ function getSimilarShoes(shoeId) {
   axios
     .get("https://shop.cyberlearn.vn/api/Product")
     .then((response) => {
-      const shoes = response.data.content.filter(
-        (shoe) => shoe.id !== shoeId
-      );
+      const shoes = response.data.content.filter((shoe) => shoe.id !== shoeId);
       let similarShoeList = "";
       for (let i = 0; i < 12 && i < shoes.length; i++) {
         similarShoeList += `
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card">
-            <img src="${shoes[i].image}" class="card-img-top" alt="${shoes[i].name}">
-            <div class="card-body">
-              <h5 class="card-title">${shoes[i].name}</h5>
-              <p class="card-text">$${shoes[i].price}</p>
-              <button onclick="goToDetail(${shoes[i].id})" class="btn btn-primary">Xem chi tiết</button>
+          <div class="shoe-item col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card">
+              <button onclick="goToDetail(${shoes[i].id})" class="btn">
+                <img
+                  src="${shoes[i].image}"
+                  class="card-img-top"
+                  alt="${shoes[i].name}"
+                />
+              </button>
+              <div class="card-body">
+                <!-- name -->
+                <div class="card-title">
+                  <h5>${shoes[i].name}</h5>
+                  <button onclick="goToDetail(${shoes[i].id})" class="btn">
+                   <i class="fa fa-shopping-cart"></i>
+                 </button>
+                </div>
+                <!-- price -->
+                <p class="card-price">$${shoes[i].price}</p>
+              </div>
             </div>
           </div>
-        </div>
       `;
       }
       document.getElementById("similarShoes").innerHTML = similarShoeList;
@@ -149,7 +165,9 @@ function getReviews() {
     <div class="card mb-2">
       <div class="card-body">
         <h5 class="card-title">${review.name}</h5>
-        <p class="card-text">Đánh giá: ${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</p>
+        <p class="card-text">Đánh giá: ${"★".repeat(review.rating)}${"☆".repeat(
+      5 - review.rating
+    )}</p>
         <p class="card-text">${review.comment}</p>
       </div>
     </div>
@@ -170,5 +188,3 @@ if (window.location.pathname.endsWith("product_detail.html")) {
 }
 
 getShoeList();
-
-
