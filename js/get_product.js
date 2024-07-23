@@ -169,4 +169,6 @@ if (window.location.pathname.endsWith("product_detail.html")) {
   getReviews(); // Gọi hàm lấy đánh giá sản phẩm
 }
 
+getShoeList();
+
 
